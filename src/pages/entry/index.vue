@@ -1,11 +1,15 @@
 <template>
-    <div v-show="component_data.length" v-for="item in component_data">
-        <product_grid_1></product_grid_1>
+    <div>
+        <div v-show="component_data.length" v-for="(item, index) in component_data" :key="item['componentKey']">
+            <header_1 v-if="item['comp_key'] === 'header_1'"></header_1>
+            <product_grid_1 v-if="item['comp_key'] === 'product_grid_1'" :component_data="item"></product_grid_1>
+        </div>
     </div>
 </template>
 
 <script>
     import product_grid_1 from '../../components/product_grid_1'
+    import header_1 from '../../components/header_1'
     import api from '../../api/api'
     import {mapState, mapMutations} from 'vuex'
     import * as types from '../../store/mutations-type'
@@ -17,7 +21,8 @@
             }
         },
         components: {
-            product_grid_1
+            product_grid_1,
+            header_1
         },
         computed: {
             ...mapState([
@@ -44,11 +49,16 @@
                 let res = await this.$axios({
                     url: api.get_theme
                 });
+
                 if (res.code === 0) {
                     let {
                         shop = {},
                         theme = {}
                     } = res.data;
+
+                    let {
+                        component_data = []
+                    } = theme;
 
                     this.set_domain(shop.domain);
                     this.set_logo_url(shop.logo_url);
@@ -59,12 +69,7 @@
                     this.set_page_id(theme.page_id);
                     this.set_page_name(theme.page_name);
 
-                    let {
-                        component_data = []
-                    } = theme;
-                    console.log(this);
                     this.component_data = component_data;
-                    console.log(this.component_data);
                 }
             }
         },

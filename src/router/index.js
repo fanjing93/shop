@@ -13,6 +13,14 @@ const router = new VueRouter({
         {
             path: '/shelf',
             component: (resolve) => require(['../pages/entry/index'], resolve)
+        },
+        {
+            path: '/center',
+            component: (resolve) => require(['../pages/center/index'], resolve)
+        },
+        {
+            path: '/cart',
+            component: (resolve) => require(['../pages/cart/index'], resolve)
         }
     ]
 });

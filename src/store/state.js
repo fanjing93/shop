@@ -3,6 +3,8 @@ const state = {
     logo_url: '',
     favicon: '',
     domain: '',
-    shop_name: ''
+    shop_name: '',
+    page_id:'',
+    page_name:''
 };
 export default state
