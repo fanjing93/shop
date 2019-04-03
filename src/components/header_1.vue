@@ -50,7 +50,7 @@
             this.get_theme();
         },
         mounted() {
-            console.log(this);
+
         }
     }
 </script>

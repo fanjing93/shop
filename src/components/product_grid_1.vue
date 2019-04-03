@@ -22,7 +22,6 @@
 </template>
 
 <script>
-    import utils from '../utils/index'
     import {mapGetters} from 'vuex'
     import api from '../api/api'
 
@@ -98,8 +97,9 @@
                         total_num = 0,
                         list = []
                     } = res.data;
+                    console.log(this);
                     list.map(item => {
-                        item['min_price'] = utils.formatPrice(item['min_price'])
+                        item['min_price'] = this.formatPrice(item['min_price'])
                     });
                     this.list = this.list.concat(list);
                     this.total_num = total_num;

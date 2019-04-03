@@ -6,11 +6,13 @@ import 'lib-flexible'
 import router from './router/index'
 import $axios from './api/index'
 import store from './store/index'
-
-Vue.use(Vant);
+import utils from './utils/index'
 
 Vue.config.productionTip = false;
 Vue.prototype.$axios = $axios;
+
+Vue.use(Vant);
+Vue.use(utils);
 
 new Vue({
     router,

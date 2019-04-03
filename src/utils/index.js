@@ -24,6 +24,16 @@ const formatFloat = (price, num = 2) => {
 };
 
 export default {
-    formatTime,
-    formatPrice
+    install(Vue, options) {
+        Vue.prototype.formatTime = formatTime;
+        Vue.prototype.formatPrice = function (price, pop_zero = false) {
+           /* this.$axios({
+                url: '/api/v1/dm/theme_page/buyer/query'
+            }).then(res=>{
+                console.log(res);
+            });*/
+            let result = price > 0 ? price / 100 : 0;
+            return pop_zero ? parseFloat(formatFloat(result)) : formatFloat(result);
+        };
+    }
 }

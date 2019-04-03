@@ -1,12 +1,10 @@
 const getters = {
     logo_url: state => {
-        console.log(state);
-        console.log(state.logo_url ? state.logo_url : localStorage.getItem('logo_url'));
         return state.logo_url ? state.logo_url : localStorage.getItem('logo_url');
     },
 
     shop_id: state => {
-        return state.shop_id;
+        return state.shop_id ? state.shop_id : localStorage.getItem('shop_id');
     },
 
     shop_name: state => {
