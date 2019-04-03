@@ -12,11 +12,9 @@
 <script>
     import product_grid_1 from '../../components/product_grid_1'
     import header_1 from '../../components/header_1'
-   /* import api from '../../api/api'
+    import api from '../../api/api'
     import {mapState, mapMutations} from 'vuex'
-    import * as types from '../../store/mutations-type'*/
-    // import common from '../../assets/js/common'
-    import common from '../../components/common'
+    import * as types from '../../store/mutations-type'
 
     export default {
         data() {
@@ -29,7 +27,7 @@
             header_1
         },
         computed: {
-           /* ...mapState([
+            ...mapState([
                 'shop_name',
                 'shop_id',
                 'favicon',
@@ -37,10 +35,10 @@
                 'logo_url',
                 'page_id',
                 'page_name'
-            ])*/
+            ])
         },
         methods: {
-          /*  ...mapMutations({
+            ...mapMutations({
                 set_shop_name: types.SET_SHOP_NAME,
                 set_logo_url: types.SET_LOGO_URL,
                 set_favicon: types.SET_FAVICON,
@@ -79,11 +77,10 @@
 
                     this.component_data = component_data;
                 }
-            }*/
+            }
         },
         created() {
-            console.log(this);
-            // this.get_theme();
+            this.get_theme();
         }
     }
 </script>
