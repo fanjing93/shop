@@ -20,51 +20,82 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
+    import {mapState, mapGetters, mapMutations} from 'vuex'
+    import * as types from '../store/mutations-type'
+    import api from '../api/api'
+
     export default {
         data() {
             return {
-
+                logo_url: localStorage.getItem('logo_url')
             }
         },
-        computed:{
-            ...mapGetters([
-                'logo_url'
-            ])
+        computed: {
+
+        },
+        methods: {
+            ...mapMutations({
+                set_logo_url: types.SET_LOGO_URL
+            }),
+            async get_theme() {
+                let res = await this.$axios({
+                    url: api.get_buyer_theme
+                });
+                if (res.code === 0) {
+                    let config = JSON.parse(res.data['config']);
+                }
+            }
+        },
+        created() {
+            this.get_theme();
+        },
+        mounted() {
+            console.log(this);
         }
     }
 </script>
 
 <style scoped lang="scss">
-    $font-size:75!global;
+    $font-size: 75 !global;
     .header-container {
         display: flex;
         align-items: center;
         height: 1.5rem;
         padding: 0 0.5rem;
-        .header-center{
+        position: fixed;
+        z-index: 9999;
+        background-color: #FFFFFF;
+        width: 100%;
+        top: 0;
+
+        .header-center {
             display: flex;
             justify-content: center;
             align-items: center;
-            .header-img-container{
+
+            .header-img-container {
                 $width: 80/$font-size + rem;
                 width: $width;
                 height: $width;
                 display: flex;
-                .header-img{
+
+                .header-img {
                     object-fit: cover;
                     width: $width;
                     height: $width;
                 }
             }
         }
-        .header-right{
+
+        .header-right {
             display: flex;
-            .header-link{
+
+            .header-link {
                 flex: 1;
             }
         }
-        .header-icon{
+
+        .header-icon {
             font-size: 45/$font-size+rem;
         }
     }

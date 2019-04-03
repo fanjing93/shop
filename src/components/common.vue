@@ -1,35 +1,18 @@
 <template>
-    <div class="wm-padding-top-1-5 wm-container">
-        <div v-show="component_data.length" v-for="(item, index) in component_data" :key="item['componentKey']">
-            <keep-alive>
-                <header_1 v-if="item['comp_key'] === 'header_1'"></header_1>
-            </keep-alive>
-            <product_grid_1 v-if="item['comp_key'] === 'product_grid_1'" :component_data="item"></product_grid_1>
-        </div>
-    </div>
+
 </template>
 
 <script>
-    import product_grid_1 from '../../components/product_grid_1'
-    import header_1 from '../../components/header_1'
-   /* import api from '../../api/api'
+    import api from '../api/api'
     import {mapState, mapMutations} from 'vuex'
-    import * as types from '../../store/mutations-type'*/
-    // import common from '../../assets/js/common'
-    import common from '../../components/common'
+    import * as types from '../store/mutations-type'
 
     export default {
         data() {
-            return {
-                component_data: []
-            }
-        },
-        components: {
-            product_grid_1,
-            header_1
+            return {}
         },
         computed: {
-           /* ...mapState([
+            ...mapState([
                 'shop_name',
                 'shop_id',
                 'favicon',
@@ -37,10 +20,10 @@
                 'logo_url',
                 'page_id',
                 'page_name'
-            ])*/
+            ])
         },
         methods: {
-          /*  ...mapMutations({
+            ...mapMutations({
                 set_shop_name: types.SET_SHOP_NAME,
                 set_logo_url: types.SET_LOGO_URL,
                 set_favicon: types.SET_FAVICON,
@@ -73,23 +56,20 @@
                     this.set_page_id(theme.page_id);
                     this.set_page_name(theme.page_name);
 
-                    localStorage.setItem('domain',shop.domain);
-                    localStorage.setItem('logo_url',shop.logo_url);
-                    localStorage.setItem('shop_id',shop.shop_id );
+                    localStorage.setItem('domain', shop.domain);
+                    localStorage.setItem('logo_url', shop.logo_url);
+                    localStorage.setItem('shop_id', shop.shop_id);
 
-                    this.component_data = component_data;
+                    // this.component_data = component_data;
                 }
-            }*/
+            }
         },
         created() {
-            console.log(this);
-            // this.get_theme();
+            this.get_theme();
         }
     }
 </script>
 
-<style scoped lang="scss">
-    .wm-padding-top-1-5{
-        padding-top: 1.5rem;
-    }
+<style scoped>
+
 </style>

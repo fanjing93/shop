@@ -21,6 +21,10 @@ const router = new VueRouter({
         {
             path: '/cart',
             component: (resolve) => require(['../pages/cart/index'], resolve)
+        },
+        {
+            path: '/product/:id',
+            component: (resolve) => require(['../pages/product/index'], resolve)
         }
     ]
 });

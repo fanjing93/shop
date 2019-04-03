@@ -1,5 +1,5 @@
 const state = {
-    shop_id: 139,
+    shop_id: '',
     logo_url: '',
     favicon: '',
     domain: '',

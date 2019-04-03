@@ -48,7 +48,7 @@ function successState(res) {
 function api_axios(params) {
     let method = params.method ? params.method.toLocaleUpperCase() : 'GET';
     let data = params.data && Object.keys(params.data).length ? params.data : {};
-    data['shop_id'] = 139;
+    data['shop_id'] = localStorage.getItem('shop_id');
     let httpDefault = {
         method: method,
         url: params.url,
