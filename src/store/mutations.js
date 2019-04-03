@@ -32,6 +32,14 @@ const matations = {
 
     [types.SET_PAGE_NAME](state, val) {
         state.page_name = val
+    },
+
+    [types.SET_LOADING](state, val) {
+        state.LOADING = val
+    },
+
+    [types.SET_COMPONENT_DATA](state, val) {
+        state.component_data = val
     }
 };
 

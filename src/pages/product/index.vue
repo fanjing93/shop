@@ -16,6 +16,9 @@
         components: {
             header_1
         },
+        created() {
+
+        }
     }
 </script>
 

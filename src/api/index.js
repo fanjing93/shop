@@ -1,6 +1,6 @@
 import axios from 'axios'
 import qs from 'qs'
-
+import $store from '../store/index'
 
 axios.defaults.baseURL = '';   //配置接口地址
 
@@ -49,6 +49,9 @@ function api_axios(params) {
     let method = params.method ? params.method.toLocaleUpperCase() : 'GET';
     let data = params.data && Object.keys(params.data).length ? params.data : {};
     data['shop_id'] = localStorage.getItem('shop_id');
+    if(params.loading){
+        $store.commit('LOADING',true);
+    }
     let httpDefault = {
         method: method,
         url: params.url,
@@ -60,9 +63,15 @@ function api_axios(params) {
     // 注意**Promise**使用(Promise首字母大写)
     return new Promise((resolve, reject) => {
         axios(httpDefault).then((res) => {  // 此处的.then属于axios
+            if(params.loading){
+                $store.commit('LOADING',false);
+            }
             successState(res)
             resolve(res)
         }).catch((response) => {
+            if(params.loading){
+                $store.commit('LOADING',false);
+            }
             errorState(response)
             reject(response)
         })

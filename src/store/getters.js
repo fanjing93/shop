@@ -1,4 +1,8 @@
 const getters = {
+    LOADING: state => {
+        return state.LOADING;
+    },
+
     logo_url: state => {
         return state.logo_url ? state.logo_url : localStorage.getItem('logo_url');
     },
@@ -25,6 +29,10 @@ const getters = {
 
     page_name: state => {
         return state.page_name;
+    },
+
+    component_data: state => {
+        return state.component_data
     }
 };
 

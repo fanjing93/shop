@@ -26,12 +26,12 @@
 
     export default {
         data() {
-            return {
-                logo_url: localStorage.getItem('logo_url')
-            }
+            return {}
         },
         computed: {
-
+            ...mapState([
+                'logo_url'
+            ])
         },
         methods: {
             ...mapMutations({
@@ -39,7 +39,8 @@
             }),
             async get_theme() {
                 let res = await this.$axios({
-                    url: api.get_buyer_theme
+                    url: api.get_buyer_theme,
+                    loading: true
                 });
                 if (res.code === 0) {
                     let config = JSON.parse(res.data['config']);

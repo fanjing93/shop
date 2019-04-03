@@ -6,3 +6,7 @@ export const SET_SHOP_ID = 'SHOP_ID';
 
 export const SET_PAGE_NAME = 'PAGE_NAME';
 export const SET_PAGE_ID = 'PAGE_ID';
+
+export const SET_LOADING = 'LOADING';
+
+export const SET_COMPONENT_DATA = 'COMPONENT_DATA';
