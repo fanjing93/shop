@@ -3,7 +3,7 @@
         <keep-alive>
             <header_1></header_1>
         </keep-alive>
-        <div v-show="component_data.length" v-for="(item, index) in component_data" :key="item['componentKey']">
+        <div v-show="component_data.length" v-for="item in component_data" :key="item['componentKey']">
             <product_grid_1 v-if="item['comp_key'] === 'product_grid_1'" :component_data="item"></product_grid_1>
         </div>
     </div>
@@ -12,13 +12,11 @@
 <script>
     import product_grid_1 from '../../components/product_grid_1'
     import header_1 from '../../components/header_1'
-    import {mapGetters} from 'vuex'
-    import * as types from '../../store/mutations-type'
+    import {mapGetters,mapActions} from 'vuex'
 
     export default {
         data() {
             return {
-                component_data: []
             }
         },
         components: {
@@ -31,15 +29,16 @@
             ])
         },
         methods: {
-
+            ...mapActions(["get_theme"]),
         },
-        created() {
+        mounted() {
+            this.get_theme();
         }
     }
 </script>
 
 <style scoped lang="scss">
     .wm-padding-top-1-5{
-        padding-top: 1.5rem;
+        padding-top: 1rem;
     }
 </style>

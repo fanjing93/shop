@@ -20,10 +20,7 @@
 </template>
 
 <script>
-    import {mapState, mapGetters, mapMutations} from 'vuex'
-    import * as types from '../store/mutations-type'
-    import api from '../api/api'
-
+    import {mapState} from 'vuex'
     export default {
         data() {
             return {}
@@ -34,21 +31,8 @@
             ])
         },
         methods: {
-            ...mapMutations({
-                set_logo_url: types.SET_LOGO_URL
-            }),
-            async get_theme() {
-                let res = await this.$axios({
-                    url: api.get_buyer_theme,
-                    loading: true
-                });
-                if (res.code === 0) {
-                    let config = JSON.parse(res.data['config']);
-                }
-            }
         },
         created() {
-            this.get_theme();
         },
         mounted() {
 
@@ -57,11 +41,12 @@
 </script>
 
 <style scoped lang="scss">
-    $font-size: 75 !global;
     .header-container {
+        $font-size: 75;
+
         display: flex;
         align-items: center;
-        height: 1.5rem;
+        height: 1rem;
         padding: 0 0.5rem;
         position: fixed;
         z-index: 9999;
@@ -75,7 +60,7 @@
             align-items: center;
 
             .header-img-container {
-                $width: 80/$font-size + rem;
+                $width: 50/$font-size + rem;
                 width: $width;
                 height: $width;
                 display: flex;
@@ -97,7 +82,7 @@
         }
 
         .header-icon {
-            font-size: 45/$font-size+rem;
+            font-size: 40/$font-size+rem;
         }
     }
 </style>

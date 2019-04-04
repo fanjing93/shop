@@ -29,7 +29,6 @@
         props: {
             component_data: {
                 type: Object,
-                default: {},
                 required: true
             }
         },
@@ -69,9 +68,7 @@
                     group_num = '',
                     column_num = 2,
                     row_num = 5,
-                    order_by = [],
-                    is_use_search_engine = '',
-                    filter = false
+                    order_by = []
                 } = comp_content;
                 this.margin_top = {'margin-top': margin + '%'};
                 this.column_num = Number(column_num);
@@ -97,7 +94,6 @@
                         total_num = 0,
                         list = []
                     } = res.data;
-                    console.log(this);
                     list.map(item => {
                         item['min_price'] = this.formatPrice(item['min_price'])
                     });
