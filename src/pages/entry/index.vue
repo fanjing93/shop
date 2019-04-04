@@ -10,8 +10,8 @@
 </template>
 
 <script>
-    import product_grid_1 from '../../components/product_grid_1'
-    import header_1 from '../../components/header_1'
+    import product_grid_1 from '@/components/product_grid_1'
+    import header_1 from '@/components/header_1'
     import {mapGetters,mapActions} from 'vuex'
 
     export default {
@@ -37,7 +37,7 @@
     }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
     .wm-padding-top-1-5{
         padding-top: 1rem;
     }

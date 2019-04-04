@@ -1,5 +1,5 @@
-import $axios from '../api/index'
-import api from '../api/api'
+import $axios from '@/api/index'
+import api from '@/api/api'
 
 const _get_theme = function () {
     return new Promise(async (resolve, reject) => {

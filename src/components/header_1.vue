@@ -20,22 +20,16 @@
 </template>
 
 <script>
-    import {mapState} from 'vuex'
     export default {
         data() {
-            return {}
+            return {
+                logo_url: localStorage.getItem('logo_url')
+            }
         },
-        computed: {
-            ...mapState([
-                'logo_url'
-            ])
-        },
-        methods: {
-        },
-        created() {
-        },
-        mounted() {
-
+        watch: {
+            logo_url(value) {
+                this.logo_url = value;
+            }
         }
     }
 </script>

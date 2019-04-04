@@ -22,6 +22,7 @@
     @import "./assets/css/base.css";
 
     $width: 2rem;
+    $init-font-size: 37.5;
     .van-loading.loading {
         width: $width;
         height: $width;
@@ -38,5 +39,13 @@
         -moz-border-radius: 3px;
         border-radius: 3px;
         padding: 0.2rem;
+    }
+
+    .wm-padding-top-1-5{
+        padding-top: 1rem;
+    }
+
+    .bg-white{
+        background-color: #FFFFFF;
     }
 </style>

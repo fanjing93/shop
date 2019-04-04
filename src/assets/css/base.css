@@ -17,6 +17,7 @@ html, body, p, div, button, ul, li {
 * {
     box-sizing: border-box;
     outline: none;
+    color: #212526;
 }
 
 body, h1, h2, h3, h4, h5, h6, ul, p {
@@ -91,11 +92,11 @@ a {
 }
 
 .font-size-12{
-    font-size: 0.16rem;
+    font-size: 0.32rem;
 }
 
 .font-size-15{
-    font-size: 0.2rem;
+    font-size: 0.4rem;
 }
 
 .text-center {

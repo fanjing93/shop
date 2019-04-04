@@ -23,7 +23,8 @@
 
 <script>
     import {mapGetters} from 'vuex'
-    import api from '../api/api'
+    import api from '@/api/api'
+    import {formatPrice} from '@/utils/index'
 
     export default {
         props: {
@@ -95,7 +96,7 @@
                         list = []
                     } = res.data;
                     list.map(item => {
-                        item['min_price'] = this.formatPrice(item['min_price'])
+                        item['min_price'] = formatPrice(item['min_price'])
                     });
                     this.list = this.list.concat(list);
                     this.total_num = total_num;
@@ -137,11 +138,11 @@
         height: $init_width;
     }
 
-    .font-size-12{
+    .font-size-12 {
         font-size: .32rem;
     }
 
-    .line-height-1-5{
+    .line-height-1-5 {
         line-height: 1.5;
     }
 
@@ -151,6 +152,7 @@
         flex-direction: row;
         background-color: #FFFFFF;
         padding: 0 0.5rem;
+        justify-content: center;
 
         .list-item {
             &:nth-child(2n+1) {
@@ -174,6 +176,25 @@
                 object-fit: contain;
                 margin-bottom: 0.2rem;
             }
+        }
+
+        .van-list__loading{
+            width: 100%;
+            margin: 0 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .van-list__loading-icon{
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .van-list__error-text,
+        .van-list__finished-text,
+        .van-list__loading-text{
+            font-size: 1rem;
         }
     }
 </style>
